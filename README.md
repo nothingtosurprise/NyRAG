@@ -23,6 +23,16 @@ This multi-query RAG approach with chunk-level retrieval ensures answers are com
 pip install nyrag
 ```
 
+We recommend `uv`:
+
+```bash
+uv init --python 3.10
+uv venv
+uv sync
+source .venv/bin/activate
+uv pip install -U nyrag
+```
+
 For development:
 
 ```bash
