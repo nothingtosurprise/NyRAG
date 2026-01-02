@@ -395,11 +395,11 @@ async def get_config(project_name: Optional[str] = None) -> Dict[str, str]:
 @app.post("/config")
 async def save_config(config: ConfigContent):
     """Save content to the project configuration file."""
+    global active_project
     config_path = _resolve_config_path(config_yaml=config.content, active_project=active_project)
     config_path.parent.mkdir(parents=True, exist_ok=True)
     with open(config_path, "w") as f:
         f.write(config.content)
-    global active_project
     active_project = config_path.parent.name
 
     return {"status": "saved"}
